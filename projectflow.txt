@@ -89,3 +89,12 @@ with Live(save_dvc_exp=True) as live:
     live.log_metric('recall', recall_score(y_test, y_test))
 
     live.log_params(params)
+
+    CONNECTING TO S3:
+        pip install dvc[s3]
+        pip install awscli
+        then run : aws configure
+        dvc remote add -d dvcstore s3://dvc-s3-mlops-proj
+        dvc commit 
+        dvc push
+
